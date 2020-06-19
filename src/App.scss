@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@800&family=Varela+Round&display=swap');
+
+$accent-1: rgb(249, 212, 206); // Pastel red #f9d4ce
+$accent-2: rgb(218, 231, 206); // Pastel green #dae7ce
+$accent-3: rgb(206, 221, 229); // Pastel blue #cedde5
+$accent-4: rgb(220, 219, 234); // Pastel purple #dcdbea
+
+$bg-color: rgb(255, 255, 255);
+$text-color: darken($accent-4, 50%);
+$subheader-color: darken($accent-4, 20%);
+$header-bg-color: lighten($accent-3, 10%);
+$credit-color: darken($accent-2, 20%);
+$debit-color: darken($accent-1, 20%);
+
+$shadow-grade-6: rgba(0, 0, 0, 0.06);
+$shadow-grade-8: rgba(0, 0, 0, 0.08);
+$border-settings: 1px solid $accent-4;
+
+$wave-fill-1: rgba(255, 255, 255, 0.8);
+$wave-fill-2: rgba(255, 255, 255, 0.6);
+
+html {
+  // This pattern is downloaded from www.toptal.com/designers/subtlepatterns/
+  background-image: url("/memphis-colorful.png");
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Varela Round", sans-serif;
+  color: $text-color;
+}
+
+main {
+  background: linear-gradient($header-bg-color, $bg-color);
+  width: 100%;
+  max-width: 1000px;
+  box-sizing: border-box;
+  border-radius: 40px;
+  margin: 16px 0;
+  padding-bottom: 16px;
+  box-shadow: 0 1px 3px $shadow-grade-6,
+              0 1px 2px $shadow-grade-8;
+}
+
+h1 {
+  text-align: center;
+  padding: 24px 0 0 0;
+  margin: 0;
+}
+
+h2, h3 {
+  margin: 0 0 8px 0;
+  color: $subheader-color;
+}
+
+h2 {
+  margin-top: 24px;
+  padding-top: 16px;
+}
+
+em {
+  font-style: normal;
+
+  &.balance {
+    font-size: 2rem;
+  }
+
+  &.money {
+    font-size: 1.5rem;
+  }
+}
+
+.credit {
+  color: $credit-color;
+}
+
+.debit {
+  color: $debit-color;
+}
+
+.container {
+  background-color: $bg-color;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.earned-spent-container {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+
+  div {
+    flex: 1;
+
+    &:first-of-type {
+      border-right: $border-settings;
+    }
+  }
+}
+
+#transactions {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+  text-align: left;
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    padding: 5px 20px;
+    border-bottom: $border-settings;
+
+    time {
+      padding-right: 20px;
+    }
+
+    span:first-of-type {
+      padding-right: 20px;
+      flex: 1;
+    }
+
+    &:last-of-type {
+      border: none;
+    }
+
+    &:nth-of-type(2n) {
+      background-color: $header-bg-color;
+    }
+  }
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: 0 auto;
+
+  textarea {
+    margin: 5px 0;
+    padding: 5px;
+    border: $border-settings;
+  }
+
+  button {
+    background-color: $header-bg-color;
+    border: $border-settings;
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: inherit;
+    padding: 5px;
+  }
+}
+
+.waves {
+  position: relative;
+  width: 100%;
+  height: 7vh;
+  margin-bottom: -29px;
+  /*Fix for safari gap*/
+  max-height: 150px;
+}
+
+.parallax>use:nth-child(1) {
+  transform: translate3d(-30px, 0, 0);
+  fill: $wave-fill-1;
+}
+
+.parallax>use:nth-child(2) {
+  transform: translate3d(90px, 0, 0);
+  fill: $wave-fill-2;
+}
